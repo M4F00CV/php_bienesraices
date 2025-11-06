@@ -1,6 +1,5 @@
 .dark-mode {
     background-color: darken($grisOscuro, 10);
-
     p {
         color: $blanco;
     }
@@ -8,7 +7,6 @@
     a, h1,h2,h3,h4  {
         color: $gris;
     }
-
     .anuncio, 
     .resumen-propiedad {
         background-color: $grisOscuro;
@@ -17,16 +15,35 @@
         .precio {
             color: $verde;
         }
-        .icono {
+        .iconos-caracteristicas .icono {
             filter: invert(100%);
         }
     }
-    
-
+    .iconos-nosotros .icono img {
+         filter: invert(100%);
+    }
     .texto-nosotros blockquote {
         color: $blanco;
     }
-   
+
+    .texto-entrada {
+        a {
+            color: $blanco; 
+            &:hover {
+                color: $verde; 
+            }
+        }
+
+        span {
+            color: $amarillo;
+        }
+    }
+
+    .testimonial {
+        blockquote::before {
+            filter: invert(100%); 
+        }
+    }
     .formulario {
         label,
         legend,
@@ -40,10 +57,24 @@
             background-color: $grisOscuro;
             border: 1px solid $grisOscuro;
             color: $blanco;
+
+            &:focus {
+                border-color: $verde;
+            }
+        }
+       .contorno {
+            background-color: #575757;
+            border: 1px solid $grisOscuro;
         }
     }
-    .formulario .contorno{
-    background-color: #575757;
-}
+
+    table.propiedades {
+        background-color: $grisOscuro;
+        border: 1px solid $verde;
+
+        tbody td {
+             border-bottom: 1px solid $verde; 
+        }
+    }
   
 }

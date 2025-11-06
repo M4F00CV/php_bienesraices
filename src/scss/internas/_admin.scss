@@ -12,10 +12,13 @@
         background-color: $verde;
     }
 }
+
 table.propiedades{
+    background-color:rgb(42, 51, 53);
     margin-top: 4rem;
     width: 100%;
     border-spacing: 0;
+    
     thead{
         background-color: $verde;
         th{
@@ -23,11 +26,27 @@ table.propiedades{
             padding: 2rem;
         }
     }
-    .imagen-tabla{
-        width: 10rem;
 
+    tbody {
+        td {
+            color: $blanco;      
+            padding: 1.5rem;    
+            text-align: center; 
+            border-bottom: 1px solid $verde; 
+        }
+
+        
+        tr td:nth-child(2) {
+            text-align: left;
+        }
+    }
+
+    .imagen-tabla{
+        width: 25rem;
+        margin: 0 auto; 
     }
 }
+
 .imagen-small{
     width: 20rem;
 }
