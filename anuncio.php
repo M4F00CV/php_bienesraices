@@ -45,8 +45,8 @@ if($resultado->num_rows==0 || !$resultado->num_rows){
                     <p><?php echo $propiedad['habitaciones']; ?></p>
                 </li>
             </ul>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam maxime quia similique. Doloremque necessitatibus officiis architecto, veniam dolor sapiente aperiam tenetur, asperiores labore quo a consequatur aliquam! Voluptatibus, cupiditate. Voluptate.</p>
-            <p><?php echo $propiedad['descripcion']; ?></p>
+            <p class="propiedad-descripcion">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam maxime quia similique. Doloremque necessitatibus officiis architecto, veniam dolor sapiente aperiam tenetur, asperiores labore quo a consequatur aliquam! Voluptatibus, cupiditate. Voluptate.</p>
+            <p class="propiedad-descripcion"><?php echo $propiedad['descripcion']; ?></p>
         </div>
     </main>
 

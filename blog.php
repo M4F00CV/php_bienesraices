@@ -1,92 +1,33 @@
 <?php 
 require 'includes/funciones.php';
 incluirTemplate("header");
+//Importar la conexion
+require "includes/config/database.php"; 
+$db=conectarDB();
+//Consultar
+$query="SELECT * FROM propiedades JOIN vendedores ON propiedades.vendedores_id = vendedores.id;";
+$resultado=mysqli_query($db,$query);
 ?>
 
     <main class="contenedor seccion contenido-centrado">
         <h1>Nuestro Blog</h1>
-
-        <article class="entrada-blog">
+        <?php while($propiedad = mysqli_fetch_assoc($resultado)): ?>
+            <article class="entrada-blog">
             <div class="imagen">
-                <picture>
-                    <source srcset="build/img/blog1.webp" type="image/webp">
-                    <source srcset="build/img/blog1.jpg" type="image/jpeg">
-                    <img loading="lazy" src="build/img/blog1.jpg" alt="Texto Entrada Blog">
-                </picture>
+                <img loading="lazy" src="/imagenes/<?php echo $propiedad['imagen']; ?>" alt="anuncio">
             </div>
 
             <div class="texto-entrada">
-                <a href="entrada.php">
-                    <h4>Terraza en el techo de tu casa</h4>
-                    <p>Escrito el: <span>28/23/2560</span> por: <span>Admin</span> </p>
+                <a href="entrada.php?id=<?php echo $propiedad['id']; ?>">
+                    <h4><?php echo $propiedad['titulo']; ?></h4> 
+                    <p>Escrito el: <span><?php echo $propiedad['creado']; ?></span> por: <span><?php echo $propiedad['nombre']; ?></span> </p>
 
-                    <p>Consejos para construir una terraza en el techo de tu casa con los mejores materiales y 
-                        ahorrando dinero</p>
+                    <p><?php echo $propiedad['descripcion']; ?></p>
                 </a>
             </div>
         </article>
-
-        <article class="entrada-blog">
-            <div class="imagen">
-                <picture>
-                    <source srcset="build/img/blog2.webp" type="image/webp">
-                    <source srcset="build/img/blog2.jpg" type="image/jpeg">
-                    <img loading="lazy" src="build/img/blog2.jpg" alt="Texto Entrada Blog">
-                </picture>
-            </div>
-
-            <div class="texto-entrada">
-                <a href="entrada.php">
-                    <h4>Guía para la decoración de tu hogar</h4>
-                    <p>Escrito el: <span>20/18/2021</span> por: <span>Admin</span> </p>
-
-                    <p>Maximiza el espacio en tu hogar con esta guia, aprende a combinar muebles y colores para 
-                        darle vida a tu espacio </p>
-                </a>
-            </div>
-        </article>
-
-        <article class="entrada-blog">
-            <div class="imagen">
-                <picture>
-                    <source srcset="build/img/blog3.webp" type="image/webp">
-                    <source srcset="build/img/blog3.jpg" type="image/jpeg">
-                    <img loading="lazy" src="build/img/blog3.jpg" alt="Texto Entrada Blog">
-                </picture>
-            </div>
-
-            <div class="texto-entrada">
-                <a href="entrada.php">
-                    <h4>Terraza en el techo de tu casa</h4>
-                    <p>Escrito el: <span>20/10/2021</span> por: <span>Admin</span> </p>
-
-                    <p>
-                        Consejos para construir una terraza en el techo de tu casa con los mejores materiales y ahorrando dinero
-                    </p>
-                </a>
-            </div>
-        </article>
-
-        <article class="entrada-blog">
-            <div class="imagen">
-                <picture>
-                    <source srcset="build/img/blog4.webp" type="image/webp">
-                    <source srcset="build/img/blog4.jpg" type="image/jpeg">
-                    <img loading="lazy" src="build/img/blog4.jpg" alt="Texto Entrada Blog">
-                </picture>
-            </div>
-
-            <div class="texto-entrada">
-                <a href="entrada.php">
-                    <h4>Guía para la decoración de tu hogar</h4>
-                    <p>Escrito el: <span>20/10/2021</span> por: <span>Admin</span> </p>
-
-                    <p>
-                        Maximiza el espacio en tu hogar con esta guia, aprende a combinar muebles y colores para darle vida a tu espacio
-                    </p>
-                </a>
-            </div>
-        </article>
+        <?php endwhile; ?>
+        
     </main>
 
 <?php incluirTemplate("footer");?>

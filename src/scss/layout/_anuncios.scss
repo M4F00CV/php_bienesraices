@@ -11,13 +11,15 @@
 
     .contenido-anuncio {
         padding: 2rem;
+        
+        p { 
+            margin: 0; // Esta regla sí se aplica a todos los <p>
+        }
     }
 
-    h3, p {
+    h3 {
         margin: 0;
     }
-    
- 
 }
 
 .precio {
@@ -42,4 +44,9 @@
             font-weight: $black;
         }
     } 
+}
+
+.propiedad-descripcion { 
+    overflow-wrap: break-word; 
+    word-wrap: break-word;      
 }
